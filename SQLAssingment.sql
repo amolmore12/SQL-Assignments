@@ -1,4 +1,5 @@
 --Sales_Table
+-- #Insert a new record in your Orders table
 
 create table Sales_Table(
 salesman_id int,
@@ -18,7 +19,8 @@ Values
 --select * from Sales_Table;
 
 --Customer_Table
-
+-- #Add Primary key constraint for SalesmanId column in Salesman table. Add default constraint for City column in Salesman table. Add Foreign key constraint for SalesmanId column in Customer table. Add not null constraint in Customer_name column for the Customer table
+	
 CREATE TABLE Customer_Table (
     SalesmanId_Name INT,
     Customer_Id INT,
@@ -37,6 +39,7 @@ VALUES
 --select * from Customer_Table;
 
 --Oders_Table
+-- #Fetch the data where the Customer’s name is ending with ‘N’ also get the purchase amount value greater than 500.
 
 CREATE TABLE Orders_Table 
 (OrderId int, 
@@ -53,6 +56,7 @@ Values
 --select * from Orders_Table;
 
 --Unique_Salesman_Id
+-- #Using SET operators, retrieve the first result with unique SalesmanId values from two tables, and the other result containing SalesmanId with duplicates from two tables.
 
 SELECT Salesman_Id
 FROM Sales_Table
@@ -72,6 +76,8 @@ GROUP BY Salesman_Id
 HAVING COUNT(*) > 1;.
 
 --Matching_Data
+-- #Display the below columns which has the matching data. Orderdate, Salesman Name, Customer Name, Commission, and City which has the range of Purchase Amount between 500 to 1500.
+	
 SELECT 
     A.Salesman_name,
 	A.City,
@@ -87,6 +93,8 @@ ON A.salesman_id = C.SalesmanId
 WHERE Purchase_Amount BETWEEN 500 AND 1500;
 
 --fetch all the results
+-- #Using right join fetch all the results from Salesman and Orders table.
+
 SELECT * FROM Sales_Table AS A
 RIGHT JOIN Orders_Table AS b
 ON A.salesman_id = B.SalesmanId
